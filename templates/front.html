@@ -1,0 +1,13 @@
+{%extends "base.html"%}
+
+{%block title%}Overview{%endblock%}
+
+{%block content%}
+
+	<h2>Latest items added:</h2>
+
+	{% for item in items %}
+		<b><br><a href="{{url_for('showItem', category_name=item.category.name, item_name=item.name)}}">{{ item.name }}</a></b><em> in {{item.category.name}} </em>
+	{% endfor %}
+
+{%endblock%}

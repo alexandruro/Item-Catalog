@@ -1,0 +1,15 @@
+{%extends "base.html"%}
+
+{%block title%}{{category_name}}{%endblock%}
+
+{%block content%}
+
+	<h2>{{category_name}}</h2>
+
+	<p><a href="{{url_for('newItem', category_name=category_name)}}">New Item</a></p>
+
+	{% for item in items %}
+		<br><a href="{{ url_for("showItem", item_name=item.name, category_name = category_name)}}">{{ item.name }}</a> <em>by {{item.user.name}}</em>
+	{% endfor %}
+
+{%endblock%}
